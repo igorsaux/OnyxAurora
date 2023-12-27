@@ -35,8 +35,8 @@
 
 	stamina = 115
 	sprint_speed_factor = 1.0
-	sprint_cost_factor = 0.40
-	stamina_recovery = 3
+	sprint_cost_factor = 0.3
+	stamina_recovery = 3.75
 
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
@@ -98,8 +98,8 @@
 
 	stamina = 175
 	sprint_speed_factor = 1
-	sprint_cost_factor = 0.80
-	stamina_recovery = 3
+	sprint_cost_factor = 0.6
+	stamina_recovery = 3.75
 
 	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN
 
@@ -192,9 +192,9 @@
 
 
 	stamina = 200
-	stamina_recovery = 5
+	stamina_recovery = 6.25
 	sprint_speed_factor = 0.9
-	sprint_cost_factor = 0.5
+	sprint_cost_factor = 0.375
 
 	heat_level_1 = 1000 //Default 360
 	heat_level_2 = 4000 //Default 400

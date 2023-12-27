@@ -41,8 +41,8 @@
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	name_language = LANGUAGE_UNATHI
 
-	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
-	stamina_recovery = 5
+	stamina	=	150			  // Unathi have the shortest but fastest sprint of all
+	stamina_recovery = 6.25
 
 	sprint_cost_factor = 1.45
 	sprint_speed_factor = 3.2

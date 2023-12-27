@@ -86,7 +86,7 @@ var/global/list/golem_types = list(
 	death_message_range = 7
 
 	stamina	=	500			  //Tireless automatons
-	stamina_recovery = 1
+	stamina_recovery = 1.25
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 

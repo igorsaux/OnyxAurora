@@ -95,10 +95,10 @@
 		"Your carapace is ice to the touch."
 	)
 
-	stamina = 100			  // Long period of sprinting, but relatively low speed gain
+	stamina = 125			  // Long period of sprinting, but relatively low speed gain
 	sprint_speed_factor = 0.7
-	sprint_cost_factor = 0.30
-	stamina_recovery = 2	//slow recovery
+	sprint_cost_factor = 0.225
+	stamina_recovery = 2.5	//slow recovery
 
 	has_organ = list(
 		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
@@ -171,4 +171,3 @@
 	if(I.w_class <= ITEMSIZE_SMALL)
 		return TRUE
 	return FALSE
-

@@ -150,9 +150,9 @@
 	blood_mask = 'icons/mob/human_races/masks/blood_tesla_body.dmi'
 
 	stamina = 30
-	stamina_recovery = 3
+	stamina_recovery = 3.75
 	sprint_speed_factor = 0.25
-	sprint_cost_factor = 0.25
+	sprint_cost_factor = 0.187
 	standing_jump_range = 1
 
 	injection_mod = 2

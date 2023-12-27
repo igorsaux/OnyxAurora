@@ -36,10 +36,10 @@
 	remains_type = /obj/effect/decal/remains/human
 	dust_remains_type = /obj/effect/decal/remains/human/burned
 
-	stamina = 130	// Humans can sprint for longer than any other species
-	stamina_recovery = 5
+	stamina = 162.5	// Humans can sprint for longer than any other species
+	stamina_recovery = 6.25
 	sprint_speed_factor = 0.9
-	sprint_cost_factor = 0.5
+	sprint_cost_factor = 0.375
 
 	grab_mod = 1.25 //humans are wily fuckers - geeves
 	climb_coeff = 1
