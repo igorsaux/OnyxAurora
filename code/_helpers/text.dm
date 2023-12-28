@@ -769,7 +769,7 @@
 // makes text uppercase, makes sure it has a correct line-end symbol (ie fullstop)
 /proc/formalize_text(var/string)
 	string = capitalize(string)
-	var/ending = copytext(string, length(string), (length(string) + 1))
+	var/ending = copytext_char(string, length(string), (length(string) + 1))
 	if(ending && !GLOB.correct_punctuation[ending])
 		string += "."
 	return string

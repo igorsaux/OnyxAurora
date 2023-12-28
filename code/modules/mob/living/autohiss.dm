@@ -39,7 +39,10 @@
 
 /datum/species/unathi
 	autohiss_basic_map = list(
-			"s" = list("ss", "sss", "ssss")
+			"s" = list("ss", "sss", "ssss"),
+			"с" = list("сс", "ссс", "сссс"),
+			"ш" = list("шш", "шшш", "шшшш"),
+			"ц" = list("цц", "ццц", "цццц")
 		)
 	autohiss_extra_map = list(
 			"x" = list("ks", "kss", "ksss")
@@ -51,7 +54,8 @@
 
 /datum/species/tajaran
 	autohiss_basic_map = list(
-			"r" = list("rr", "rrr", "rrrr")
+			"r" = list("rr", "rrr", "rrrr"),
+			"р" = list("рр", "ррр", "рррр")
 		)
 	autohiss_exempt = list(
 			LANGUAGE_SIIK_MAAS,
@@ -148,11 +152,11 @@
 
 		. = list()
 
-		while(length(message))
+		while(length_char(message))
 			var/min_index = 10000 // if the message is longer than this, the autohiss is the least of your problems
 			var/min_char = null
 			for(var/char in map)
-				var/i = findtext(message, char)
+				var/i = findtext_char(message, char)
 				if(!i) // no more of this character anywhere in the string, don't even bother searching next time
 					map -= char
 				else if(i < min_index)
@@ -161,8 +165,8 @@
 			if(!min_char) // we didn't find any of the mapping characters
 				. += message
 				break
-			. += copytext(message, 1, min_index)
-			if(copytext(message, min_index, min_index+1) == uppertext(min_char))
+			. += copytext_char(message, 1, min_index)
+			if(copytext_char(message, min_index, min_index+1) == uppertext(min_char))
 				switch(text2ascii(message, min_index+1))
 					if(65 to 90) // A-Z, uppercase; uppercase R/S followed by another uppercase letter, uppercase the entire replacement string
 						. += uppertext(pick(map[min_char]))
@@ -170,10 +174,10 @@
 						. += capitalize(pick(map[min_char]))
 			else
 				. += pick(map[min_char])
-			if(ignore_subsequent && lowertext(copytext(message, min_index, min_index+1)) == lowertext(copytext(message, min_index+1, min_index+2)))
-				message = copytext(message, min_index + 2) // If the current letter and the subsequent letter are the same, skip the subsequent letter
+			if(ignore_subsequent && lowertext(copytext_char(message, min_index, min_index+1)) == lowertext(copytext_char(message, min_index+1, min_index+2)))
+				message = copytext_char(message, min_index + 2) // If the current letter and the subsequent letter are the same, skip the subsequent letter
 			else
-				message = copytext(message, min_index + 1)
+				message = copytext_char(message, min_index + 1)
 
 	return jointext(., "")
 

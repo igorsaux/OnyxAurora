@@ -101,9 +101,9 @@ var/list/channel_to_radio_key = new
 		message_range = world.view
 
 	if(HAS_FLAG(mutations, HULK))
-		var/ending = copytext(message, length(message), length(message) + 1)
+		var/ending = copytext_char(message, length(message), length(message) + 1)
 		if(ending && GLOB.correct_punctuation[ending])
-			message = copytext(message, 1, length(message))
+			message = copytext_char(message, 1, length(message))
 		message = "[uppertext(message)]!!!"
 		say_verb = pick("yells", "roars", "hollers")
 		. = TRUE
@@ -200,15 +200,15 @@ var/list/channel_to_radio_key = new
 	var/regex/emote = regex("^(\[\\*^\])\[^*\]+$")
 
 	if(emote.Find(message))
-		if(emote.group[1] == "*") return client_emote(copytext(message, 2))
-		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext(message,2))
+		if(emote.group[1] == "*") return client_emote(copytext_char(message, 2))
+		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext_char(message,2))
 
 	//parse the radio code and consume it
 	if (message_mode)
 		if (message_mode == "headset")
-			message = copytext(message,2)	//it would be really nice if the parse procs could do this for us.
+			message = copytext_char(message,2)	//it would be really nice if the parse procs could do this for us.
 		else
-			message = copytext(message,3)
+			message = copytext_char(message,3)
 
 	message = trim(message)
 	message = formalize_text(message)
@@ -219,7 +219,7 @@ var/list/channel_to_radio_key = new
 		speaking = parse_language(message)
 	if(!had_speaking)
 		if(speaking)
-			message = copytext(message,2+length(speaking.key))
+			message = copytext_char(message,2+length(speaking.key))
 		else
 			speaking = get_default_language()
 
@@ -229,8 +229,8 @@ var/list/channel_to_radio_key = new
 		message_mode = speech_mod[2]
 
 	var/is_singing = FALSE
-	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
-		message = copytext(message, 2)
+	if(length_char(message) >= 1 && copytext_char(message, 1, 2) == "%")
+		message = copytext_char(message, 2)
 		if(speaking?.sing_verb)
 			is_singing = TRUE
 
