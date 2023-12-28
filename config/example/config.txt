@@ -492,10 +492,10 @@ FORCE_MAP runtime
 #TICKET_REMINDER_PERIOD 600
 
 # What sector the station/station is currently on. Check _defines/space_sectors.dm for possible options
-CURRENT_SPACE_SECTOR Romanovich Cloud
+CURRENT_SPACE_SECTOR Weeping Stars
 
 # If using TGS, counts how many regularly TGS hard restarts the server process.
-# -1 - never do this.
+# -1 - never do this.s
 # 0 - do this after every round.
 # n - do this every n rounds.
 #ROUNDS_UNTIL_HARD_RESTART -1
