@@ -495,7 +495,7 @@ FORCE_MAP runtime
 CURRENT_SPACE_SECTOR Weeping Stars
 
 # If using TGS, counts how many regularly TGS hard restarts the server process.
-# -1 - never do this.s
+# -1 - never do this.
 # 0 - do this after every round.
 # n - do this every n rounds.
 #ROUNDS_UNTIL_HARD_RESTART -1
