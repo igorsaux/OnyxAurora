@@ -29,7 +29,6 @@ var/datum/antagonist/loyalists/loyalists
 
 	restricted_jobs = list("AI", "Cyborg", "Merchant")
 	protected_jobs = list("Lab Assistant", "Medical Intern", "Engineering Apprentice", "Assistant", "Security Cadet")
-	required_age = 31
 
 /datum/antagonist/loyalists/New()
 	..()

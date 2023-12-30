@@ -31,7 +31,6 @@ var/datum/antagonist/cultist/cult
 	initial_spawn_req = 4
 	initial_spawn_target = 6
 	antaghud_indicator = "hudcultist"
-	required_age = 10
 
 	faction = "cult"
 

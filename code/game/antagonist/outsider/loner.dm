@@ -11,7 +11,6 @@ var/datum/antagonist/loner/loners
 					You have a special psionic power that allows you to absorb a psionic energy from a being's Zona Bovinae, granting you an extra point to be used in the Point Shop."
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "hudloner"
-	required_age = 7
 
 	hard_cap = 1
 	hard_cap_round = 1

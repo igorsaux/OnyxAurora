@@ -12,7 +12,6 @@ var/datum/antagonist/jockey/jockeys
 	You can use :H or :B to talk on your encrypted channel, which only you and your partner can read.<br>"
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
 	antaghud_indicator = "hudjockey"
-	required_age = 7
 
 	hard_cap = 3
 	hard_cap_round = 3
