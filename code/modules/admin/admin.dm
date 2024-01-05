@@ -303,7 +303,7 @@ var/global/enabled_spooking = 0
 		return
 
 	if (GLOB.config.ban_legacy_system)
-		var/dat = "<html><head><title>Info on [key]</title></head>"
+		var/dat = "<html charset='utf-8'><head><title>Info on [key]</title></head>"
 		dat += "<body>"
 
 		var/p_age = "unknown"

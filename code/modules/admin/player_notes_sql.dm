@@ -95,7 +95,7 @@
 		log_world("ERROR: SQL connection failed while attempting to view a player's notes!")
 		return
 
-	var/dat = "<div align='center'><h3>Notes Look-up Panel</h3><br>"
+	var/dat = "<html charset='utf-8'><body><div align='center'><h3>Notes Look-up Panel</h3><br>"
 
 	//Totally not stealing code from the DB_ban_panel
 
@@ -175,7 +175,7 @@
 			dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=\ref[src];dbnoteedit=delete;dbnoteid=[id]\">Delete</a>) (<a href=\"byond://?src=\ref[src];dbnoteedit=content;dbnoteid=[id]\">Edit</a>)</b></td></tr>"
 			dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
-	dat += "</table>"
+	dat += "</table></body></html>"
 	usr << browse(dat,"window=lookupnotes;size=900x500")
 
 /proc/show_player_info_discord(var/ckey)
