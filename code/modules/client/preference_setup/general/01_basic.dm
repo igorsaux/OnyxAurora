@@ -130,9 +130,9 @@
 
 		if (query.NextRow())
 			if (text2num(query.item[1]) > 5)
-				pref.can_edit_name = FALSE
+				pref.can_edit_name = TRUE
 				if(GLOB.config.ipc_timelock_active)
-					pref.can_edit_ipc_tag = FALSE
+					pref.can_edit_ipc_tag = TRUE
 		else
 			log_world("ERROR: SQL CHARACTER LOAD: Logic error, general/basic/load_character_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
 
