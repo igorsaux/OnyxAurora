@@ -115,27 +115,6 @@
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
-/datum/category_item/player_setup_item/general/basic/load_character_special()
-	pref.can_edit_name = TRUE
-	pref.can_edit_ipc_tag = TRUE
-
-	if (GLOB.config.sql_saves && pref.current_character)
-		if (!establish_db_connection(GLOB.dbcon))
-			return
-
-		// Called /after/ loading and /before/ sanitization.
-		// So we have pref.current_character. It's just in text format.
-		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id:")
-		query.Execute(list("id" = text2num(pref.current_character)))
-
-		if (query.NextRow())
-			if (text2num(query.item[1]) > 5)
-				pref.can_edit_name = FALSE
-				if(GLOB.config.ipc_timelock_active)
-					pref.can_edit_ipc_tag = FALSE
-		else
-			log_world("ERROR: SQL CHARACTER LOAD: Logic error, general/basic/load_character_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
-
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	if(!pref.species)
 		pref.species = SPECIES_HUMAN
