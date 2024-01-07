@@ -393,18 +393,18 @@
 //This is used for fingerprints
 /proc/stringmerge(text,compare,replace = "*")
 	var/newtext = text
-	if(length(text) != length(compare))
+	if(length_char(text) != length_char(compare))
 		return 0
-	for(var/i = 1, i < length(text), i++)
-		var/a = copytext(text,i,i+1)
-		var/b = copytext(compare,i,i+1)
+	for(var/i = 1, i < length_char(text), i++)
+		var/a = copytext_char(text,i,i+1)
+		var/b = copytext_char(compare,i,i+1)
 		//if it isn't both the same letter, or if they are both the replacement character
 		//(no way to know what it was supposed to be)
 		if(a != b)
 			if(a == replace) //if A is the replacement char
-				newtext = copytext(newtext,1,i) + b + copytext(newtext, i+1)
+				newtext = copytext_char(newtext,1,i) + b + copytext_char(newtext, i+1)
 			else if(b == replace) //if B is the replacement char
-				newtext = copytext(newtext,1,i) + a + copytext(newtext, i+1)
+				newtext = copytext_char(newtext,1,i) + a + copytext_char(newtext, i+1)
 			else //The lists disagree, Uh-oh!
 				return 0
 	return newtext
@@ -415,23 +415,23 @@
 	if(!text || !character)
 		return 0
 	var/count = 0
-	for(var/i = 1, i <= length(text), i++)
-		var/a = copytext(text,i,i+1)
+	for(var/i = 1, i <= length_char(text), i++)
+		var/a = copytext_char(text,i,i+1)
 		if(a == character)
 			count++
 	return count
 
 /proc/reverse_text(text = "")
 	var/new_text = ""
-	for(var/i = length(text); i > 0; i--)
-		new_text += copytext(text, i, i+1)
+	for(var/i = length_char(text); i > 0; i--)
+		new_text += copytext_char(text, i, i+1)
 	return new_text
 
 //Used in preferences' SetFlavorText and human's set_flavor verb
 //Previews a string of len or less length
 /proc/TextPreview(string, len=40)
-	if(length(string) <= len)
-		if(!length(string))
+	if(length_char(string) <= len)
+		if(!length_char(string))
 			return "\[...\]"
 		else
 			return string
@@ -525,7 +525,7 @@
 		. += ascii2text(letter)
 	. = jointext(.,null)
 
-#define starts_with(string, substring) (copytext(string,1,1+length(substring)) == substring)
+#define starts_with(string, substring) (copytext_char(string,1,1+length_char(substring)) == substring)
 
 #define gender2text(gender) capitalize(gender)
 
@@ -695,11 +695,11 @@
 
 //Used for applying byonds text macros to strings that are loaded at runtime
 /proc/apply_text_macros(string)
-	var/next_backslash = findtext(string, "\\")
+	var/next_backslash = findtext_char(string, "\\")
 	if(!next_backslash)
 		return string
 
-	var/leng = length(string)
+	var/leng = length_char(string)
 
 	var/next_space = findtext_char(string, " ", next_backslash + 1)
 	if(!next_space)
@@ -708,9 +708,9 @@
 	if(!next_space)	//trailing bs
 		return string
 
-	var/base = next_backslash == 1 ? "" : copytext(string, 1, next_backslash)
-	var/macro = lowertext(copytext(string, next_backslash + 1, next_space))
-	var/rest = next_backslash > leng ? "" : copytext(string, next_space + 1)
+	var/base = next_backslash == 1 ? "" : copytext_char(string, 1, next_backslash)
+	var/macro = lowertext(copytext_char(string, next_backslash + 1, next_space))
+	var/rest = next_backslash > leng ? "" : copytext_char(string, next_space + 1)
 
 	//See http://www.byond.com/docs/ref/info.html#/DM/text/macros
 	switch(macro)
